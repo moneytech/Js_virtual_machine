@@ -1,0 +1,6 @@
+如果做了修改：
+首先提交到栈区（工作树），建立文件的历史记录,索引（关于内容修改）--git add <file>
+然后，提交到本地仓库--git commit -m ”说明“
+之后，建立远程仓库 --git remote add <repository 别名 一般给远程仓库取origin> <url>  （一般只是在新建远程仓库时需要改指令）
+之后，推送到远程仓库  --git push -u（下次推送不用填写分支，默认第一次的分支） origin（不填时的默认值） master
+还有，从远程仓库拉 --git pull origin master
