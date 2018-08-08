@@ -4,6 +4,9 @@
 // version 1.0.3
 // date 17/02/2015
 
+//Comment date:  2018/8/8
+//function: 虚拟机实现 virtual machine implementation
+
 #include "vm.h"
 #include "instruction.h"
 #include "parser.h"

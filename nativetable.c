@@ -3,6 +3,10 @@
 // version 1.0.3
 // date 17/02/2015
 
+//Comment date:  2018/8/8
+//function: 本地功能实现（如print） native function implementation
+
+
 #include "nativetable.h"
 #include "object.h"
 #include "array.h"

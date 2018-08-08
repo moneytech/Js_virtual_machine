@@ -1,3 +1,6 @@
+//date:  2018/8/8
+//function: 数组实现 arry implementation file
+
 #include "array.h"
 #include "object.h"
 

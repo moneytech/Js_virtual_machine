@@ -1,3 +1,6 @@
+//date:  2018/8/8
+//function: 垃圾回收 garbbage collection
+
 #include "gc.h"
 
 void gc_copy_var_list(MicroVM * vm, plist_t * target_list, plist_t var_list, uint16_t cnt)

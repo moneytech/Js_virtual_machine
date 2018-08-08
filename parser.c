@@ -1,3 +1,6 @@
+//Comment date:  2018/8/8
+//function: 语法分析 Gramma analysis
+
 #include "parser.h"
 #include "instruction.h"
 #include "errcode.h"

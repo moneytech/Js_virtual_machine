@@ -1,3 +1,6 @@
+//Comment date:  2018/8/8
+//function: 定时器 virtual machine timer
+
 #include "vm_timeout.h"
 
 vm_timeout_t vm_timeout_queue[VM_TIMEOUT_MAX];

@@ -1,3 +1,6 @@
+//Comment date:  2018/8/8
+//function: 对象实现 object implementation
+
 #include "object.h"
 #include "parser.h"
 
