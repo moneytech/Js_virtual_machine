@@ -1,4 +1,4 @@
-//date:  2018/8/8
+//Comment date:  2018/8/8
 //function: 垃圾回收 garbbage collection
 
 #include "gc.h"
