@@ -1,10 +1,10 @@
 # Js_vm
 
 #### Description
-run JS on an STM board
+this is a virtual machine to run JS on an STM board
 
 #### Software Architecture
-Software architecture description
+STM32F103 JavaScipt 
 
 #### Installation
 
