@@ -682,15 +682,15 @@ uint8_t vm_is_var(var_t * v)
     return 0;
 }
 
-int vm_opcode_parse(MicroVM *vm, const uint8_t opcode, uint8_t * pc)
+int vm_opcode_parse(MicroVM *vm, const uint8_t opcode, uint8_t * pc) //print the compiling information
 {
-    printf("[sp: %x, pc: %x] ", (intptr_t)vm->sp, (intptr_t)pc);
+    printf("[sp: %lx, pc: %lx] ", (intptr_t)vm->sp, (intptr_t)pc);
     switch(opcode)
     {
     case Nop:       printf("Nop\n");return 1;
     case Stop:      printf("Stop\n");return 1;
     //load
-    case LoadVar:   printf("LoadVar, %d\n", *pc, *(pc+1));return 3;
+    case LoadVar:   printf("LoadVar, %d, %d\n", *pc, *(pc+1));return 3;
     case LoadLocalVar:   printf("LoadLocalVar, %d, %d\n", *pc, *(pc+1));return 3;
     case LoadFunc:  printf("LoadFunc, %d\n", *pc);return 3;
     case LoadNative:  printf("LoadNative, %d\n", *pc);return 3;
@@ -1029,7 +1029,7 @@ int vm_load_file(MicroVM* vm, char *filename)
 
     for(;;)
     {
-        sleep(1);
+        for(i = 0;i < 100;++i);
         vm_system_ticks_count++;
         vm_timeout_proc(vm);
     }

@@ -3,10 +3,10 @@
 
 #include "vm.h"
 
-#define FLAG_MAIN         1
-#define FLAG_FUNC         2
-#define FLAG_IGNORE       4
-#define FLAG_ASSIGN       8
+#define FLAG_MAIN         1 //0001
+#define FLAG_FUNC         2 //0010
+#define FLAG_IGNORE       4 //0100
+#define FLAG_ASSIGN       8 //1000
 
 enum PARSER_TOKEN
 {
@@ -66,21 +66,21 @@ typedef struct parser_t {
 	uint16_t col;
 	char * input;
 	uint32_t index;
-    uint16_t id1;
+    uint16_t id1; //represent varibale
     uint16_t id2;
     uint32_t opcodeIndex;
-    uint8_t op;
+    uint8_t op;  //represent operation way
     uint8_t* codes;
-    uint32_t code_size;
+    uint32_t code_size;//the max number of code
     parser_varmap_t map;
 
     function_t* currFunc;
     uint8_t curr_func_id;
     CELL num;
     MicroVM* vm;
-    uint8_t flag;
+    uint8_t flag; //code flag
     uint8_t num_of_args;
-    char id_name[100];
+    char id_name[100]; //varibale array
     uint8_t token;
 }parser_t;
 

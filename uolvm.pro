@@ -34,3 +34,6 @@ HEADERS  += \
     object.h \
     array.h \
     gc.h
+
+DISTFILES += \
+    编译器原理说明-2018.10.17.txt

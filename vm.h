@@ -40,12 +40,12 @@ typedef union
 {
     int32_t ival;
     float  fval;
-    void*   addr;
+    void*   addr; //pionter of function to execute
 }CELL;
 
 typedef struct VAR
 {
-    uint8_t type;
+    enum VarTypes type;
     CELL val;
 }var_t;
 
@@ -69,8 +69,8 @@ typedef struct NATIVE
 
 typedef struct FUNCTION
 {
-    uint8_t var_cnt;
-    uint8_t arg_cnt;
+    uint8_t var_cnt;   //varible count
+    uint8_t arg_cnt;   //argument count
     plist_t var_list;
     uint16_t code_index;
 }function_t;
@@ -97,13 +97,13 @@ typedef struct MICROVM
     uint8_t* pc_base;
 
     var_t* sp_base;
-    var_t* sp;
+    var_t* sp;            //statck pointer
     uint8_t error;
 
-    plist_t func_list;
+    plist_t func_list;   //function list
     uint16_t func_cnt;
 
-    plist_t native_func_list;
+    plist_t native_func_list;  //native function list
     uint16_t native_func_cnt;
 
     uint16_t var_cnt;

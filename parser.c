@@ -96,7 +96,7 @@ int parser_Identifier(parser_t * p);
 int parser_Comment(parser_t * p);
 int parser_LineComment(parser_t * p); 
 
-void parser_push_opcode(parser_t *p, uint8_t code)
+void parser_push_opcode(parser_t *p, uint8_t code) //入栈
 {
     if(parser_flag_is_ignore(p))
         return;
@@ -169,21 +169,24 @@ void parser_insert_opcode(parser_t *p, int index, uint8_t * bytes, int len)
     p->opcodeIndex += len;
 }
 
-uint32_t parser_htbl_key(uint32_t size, uint32_t hash, int i) {
+uint32_t parser_htbl_key(uint32_t size, uint32_t hash, int i) //generate hash table key
+{
     return (hash + i * (hash * 2 + 1)) % size;
 }
 
-uint32_t parser_hash(const void *key)
+uint32_t parser_hash(const void *key) //generate hash key for character array
 {
     const char *ptr = key;
     uint32_t val = 0;
 
-    while (*ptr) {
+    while (*ptr)
+    {
         uint32_t tmp;
 
         val = (val << 4) + *ptr;
         tmp = val & 0xf0000000;
-        if (tmp) {
+        if (tmp)
+        {
             val = (val ^ (tmp >> 24)) ^ tmp;
         }
 
@@ -234,19 +237,20 @@ function_t * parser_func_put(parser_t* p, const char* name, uint16_t* id)
     plist_t list = vm->func_list;
     var_t cell;
     list = list_hash_find(list, hash);
-    if(list)
+    if(list) //if the list has this function
     {
         *id = list->index;
         return (function_t*)list->data.val.addr;
     }
 
+    //else: add this function to the lsit(as an empty function)
     function_t * func = (function_t*)heap_alloc(vm->heap, sizeof(function_t));
     func->arg_cnt = 0;
     func->var_cnt = 0;
     cell.val.addr = func;
     cell.type = T_FUNCTION;
     list_append(vm, &vm->func_list, cell, hash);
-    *id = vm->func_cnt++;
+    *id = vm->func_cnt++; //*id represent function count
     p->currFunc = func;
     p->currFunc->var_list = NULL;
     return func;
