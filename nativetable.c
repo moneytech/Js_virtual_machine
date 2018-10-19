@@ -99,32 +99,32 @@ string_t str_undefined;
 string_t str_number;
 string_t str_string;
 
-var_t native_typeof(MicroVM * vm, int argc, var_t * v)
+var_t native_typeof(MicroVM * vm, int argc, var_t * v) //return the type of variable
 {
     (void)vm;
     var_t var;
     vm_mk_type(&var, T_UNDEFINED);
-    if(argc != 1)
+    if(argc != 1)   //return UNDEFINED type if variable number to be judged is not one
         return var;
 
     if(vm_is_var_boolean(v))
     {
-        var.type = T_STRING;
+        var.type = T_BOOLEAN;
         var.val.addr = &str_boolean;
     }
     else if(vm_is_var_object(v))
     {
-        var.type = T_STRING;
+        var.type = T_OBJECT;
         var.val.addr = &str_object;
     }
     else if(vm_is_var_undefined(v))
     {
-        var.type = T_STRING;
+        var.type = T_UNDEFINED;
         var.val.addr = &str_undefined;
     }
     else if(vm_is_var_number(v))
     {
-        var.type = T_STRING;
+        var.type = T_NUMBER;
         var.val.addr = &str_number;
     }
     else if(vm_is_var_string(v))

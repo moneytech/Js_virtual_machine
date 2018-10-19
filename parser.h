@@ -8,7 +8,7 @@
 #define FLAG_IGNORE       4 //0100
 #define FLAG_ASSIGN       8 //1000
 
-enum PARSER_TOKEN
+enum PARSER_TOKEN     //应该是词法分析 --单词
 {
     TOKEN_INVALID = 0,
     TOKEN_ADD,      // +
@@ -46,41 +46,42 @@ enum PARSER_TOKEN
     TOKEN_memberExpressionSuffix,
 };
 
-typedef struct parser_var
+typedef struct parser_var //used to construct hash table
 {
-    var_t val;
-    uint32_t hash;
+    var_t val;       //value of variable in hash table
+    uint32_t hash;   //hash key
 }parser_var_t;
 
-typedef struct parser_varmap
+typedef struct parser_varmap //hash table
 {
-    uint16_t size;           // Symbal hash table size
+    uint16_t size;           //hash table size
     uint16_t count;
-    parser_var_t * table;
+    parser_var_t * table;    //the linear storage struct: array(hash table)
     uint8_t id;
 }parser_varmap_t;
 
-typedef struct parser_t {
+typedef struct parser_t  //used to analyse parser
+{
 	uint8_t  error;
 	uint16_t line;
 	uint16_t col;
-	char * input;
+    char * input;       //code txt input
 	uint32_t index;
-    uint16_t id1; //represent varibale
+    uint16_t id1;       //represent varibale
     uint16_t id2;
     uint32_t opcodeIndex;
-    uint8_t op;  //represent operation way
+    uint8_t op;         //represent operation way
     uint8_t* codes;
-    uint32_t code_size;//the max number of code
+    uint32_t code_size; //the size of code to be analyse
     parser_varmap_t map;
 
     function_t* currFunc;
     uint8_t curr_func_id;
     CELL num;
     MicroVM* vm;
-    uint8_t flag; //code flag
+    uint8_t flag;         //code flag
     uint8_t num_of_args;
-    char id_name[100]; //varibale array
+    char id_name[100];    //varibale array
     uint8_t token;
 }parser_t;
 

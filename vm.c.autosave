@@ -1003,7 +1003,7 @@ int vm_load_file(MicroVM* vm, char *filename)
     parser->vm = vm;
     parser->input = buffer;
     parser->codes = code_buffer;
-    parser->code_size = lSize;
+    parser->code_size = lSize; 
     memset(parser->codes, 0 , 1000);
     native_init(parser);
     parser_run(parser);

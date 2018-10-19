@@ -17,7 +17,7 @@
 
 #include "heap.h"
 
-enum VarTypes
+enum VarTypes      //supported variable type
 {
     T_UNKNOWN = 0,
     T_VAR,
@@ -38,15 +38,15 @@ enum VarTypes
 
 typedef union
 {
-    int32_t ival;
-    float  fval;
+    int32_t ival; //integer value
+    float  fval;  //float   value
     void*   addr; //pionter of function to execute
 }CELL;
 
 typedef struct VAR
 {
-    enum VarTypes type;
-    CELL val;
+    enum VarTypes type;  //record the type of variable
+    CELL val;            //record the value of variable
 }var_t;
 
 struct 	MICROVM;
@@ -77,8 +77,8 @@ typedef struct FUNCTION
 
 typedef struct STRING
 {
-    uint16_t size;
-    char* buf;
+    uint16_t size; //length
+    char* buf;     //value
 }string_t;
 
 typedef struct OBJECT

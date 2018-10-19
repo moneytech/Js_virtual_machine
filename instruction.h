@@ -6,7 +6,7 @@
 #ifndef INSTRUCTION_H
 #define INSTRUCTION_H
 
-enum Opcode
+enum Opcode   //the might operation. this is to be showed in terminal
 {
     Nop = 0,  //0
     Stop,
